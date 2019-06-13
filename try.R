@@ -1,1 +1,6 @@
-.libPaths("/home/chit/R/x86_64-pc-linux-gnu-library/3.6")
+arg <- commandArgs()
+input <- strsplit(arg[6], ",")
+
+for (i in input){
+    print(i)
+}
