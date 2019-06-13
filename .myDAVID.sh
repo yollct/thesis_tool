@@ -42,7 +42,7 @@ function filtercluster_ensembl(){
     #arg1 results folder
     #arg2 cluster #
     Rscript filter_cluster.R $@
-    echo The filtered cluster is saved as clust$2_ens.csv in $1 folder.
+    echo The filtered cluster is saved as clust$2.csv in $1 folder.
 
 }
 

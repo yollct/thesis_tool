@@ -3,11 +3,11 @@ library(dplyr)
 library(tidyr)
 library(org.Hs.eg.db)
 
-arg <- CommandArgs()
+arg <- commandArgs()
 ##arg[6] = results folder
 ##arg[7] = cluster
 
-clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv"), arg[6])
+clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv", arg[6]))
 
 filterclust_ensm <- function(clust){
   clu <- clusters %>%
@@ -20,6 +20,6 @@ filterclust_ensm <- function(clust){
 }
 
 whatever <- filterclust_ensm(sprintf("Cluster %s", arg[7]))
-write.table(whatever$ENSEMBL, sprintf("/home/chit/Desktop/Thesis/results/01.06/clust%s.txt",arg[7]), row.names = F,
+write.table(whatever$ENSEMBL, sprintf("/home/chit/Desktop/Thesis/results/%s/clust%s.csv",arg[6],arg[7]), row.names = F,
             col.names = F,
             quote = F)
