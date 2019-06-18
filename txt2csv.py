@@ -1,5 +1,6 @@
 import csv
 import sys
+
 folder = sys.argv[1]
 cluster = sys.argv[2]
 

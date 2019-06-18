@@ -1,9 +1,8 @@
 #! /bin/bash
 
-function test(){
-    ##args1 = results folder
-    ##args2 = cluster
-    Rscript try.R $@
+read -p "data" data
+read -p "try" clusters
+
+python try.py $data $clusters
     
 
-}
