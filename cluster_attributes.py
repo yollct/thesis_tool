@@ -42,3 +42,7 @@ G = nx.relabel_nodes(ori, mapping)
 nx.set_node_attributes(G, final_dict)
 
 nx.write_graphml(G, "/home/chit/Desktop/Thesis/results/{}/terms_connectivity.graphml".format(data))
+
+df = nx.to_pandas_dataframe(G)
+with open("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data),"w") as f:
+    f.write(df)

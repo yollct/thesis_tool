@@ -23,3 +23,6 @@ whatever <- filterclust_ensm(sprintf("Cluster %s", input))
 write.table(whatever$ENSEMBL, sprintf("/home/chit/Desktop/Thesis/results/%s/clust%s.csv",result,input), row.names = F,
             col.names = F,
             quote = F)
+
+
+
