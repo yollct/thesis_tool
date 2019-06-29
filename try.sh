@@ -1,8 +1,12 @@
 #! /bin/bash
-
 read -p "data" data
-read -p "try" clusters
 
-python try.py $data $clusters
+filepath="/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
+IFS=$"\n" read -d " " -r -a clusters  < $filepath
+
+for cl in $clusters
+do 
+    echo $cl
+done
     
-
+echo $filepath

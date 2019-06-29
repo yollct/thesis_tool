@@ -1,6 +1,10 @@
 import sys
 
-afaf=[]
-for i in range(2, len(sys.argv)):
-    afaf.append(sys.argv[i])
-print(afaf)
+clu = input("enter")
+
+cluster = clu.split(",")
+
+for c in cluster:
+    print(c)
+
+
