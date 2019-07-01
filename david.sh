@@ -4,7 +4,7 @@
 read -p 'Enter the name of the results folder: ' data
 read -p 'Enter the name of the cluster file(c1_c2): ' clusters
 read -p "Enter the DAVID analysis (termenrich/chart): " job
-if [ $clusters == "all"]
+if [ "$clusters" == "all" ]
 then
     IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
     for all_cluster in $all_clusters
@@ -34,3 +34,4 @@ else
         cd /home/chit/Desktop/Thesis/thesis_tool
         echo Finished running Cluster $cluster.
 done
+fi

@@ -1,10 +1,7 @@
 import sys
 
-clu = input("enter")
+all_clusters = []
+for i in range(1,len(sys.argv)):
+    all_clusters.append(sys.argv[i])
 
-cluster = clu.split(",")
-
-for c in cluster:
-    print(c)
-
-
+print(all_clusters)

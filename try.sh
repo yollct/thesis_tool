@@ -1,12 +1,10 @@
 #! /bin/bash
-read -p "data" data
 
-filepath="/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
-IFS=$"\n" read -d " " -r -a clusters  < $filepath
 
-for cl in $clusters
-do 
-    echo $cl
-done
+read -p 'Enter the name of the results folder: ' data
+read -p 'Enter the name of the cluster file(c1_c2): ' clusters
+
+IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
     
-echo $filepath
+python try.py $all_clusters
+
