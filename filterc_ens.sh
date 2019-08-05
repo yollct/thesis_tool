@@ -4,7 +4,7 @@ read -p "Enter the number of clusters to filter e.g. 1 2 3...: " clusters
 
 if [ "$clusters" == "all" ]
 then
-    IFS=$"\n" read -d " " -r -a all_clusters  < "/data/home/students/chit/Thesis/results/$data/all_clusters.txt"
+    IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
     for all_cluster in $all_clusters
     do 
        Rscript filter_cluster.R $data $all_cluster

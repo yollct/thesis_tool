@@ -6,9 +6,9 @@ if [ "$clusters" == "all" ]
 then
     IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
     
-    python cluster_attributes.py $data $all_clusters
+    python3 cluster_attributes.py $data $all_clusters
     echo The graphml file with term attributes is in $data folder as term_connectivity.graphml.
 else 
-    python cluster_attributes.py $data $clusters
+    python3 cluster_attributes.py $data $clusters
     echo The graphml file with term attributes is in $data folder as term_connectivity.graphml.
 fi
