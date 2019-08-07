@@ -45,5 +45,6 @@ nx.set_node_attributes(G, final_dict)
 
 nx.write_graphml(G, "/home/chit/Desktop/Thesis/results/{}/terms_connectivity.graphml".format(data))
 
-df = nx.to_pandas_adjacency(G)
-df.to_csv("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data))
+#df = nx.to_pandas_adjacency(G)
+final.set_index('Cluster').fillna(0).to_csv("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data))
+
