@@ -19,5 +19,6 @@ def oxi_gene_list():
 
     ##filter the clusters and oxi gene list
     highlogodd = clusters[clusters['cluster'].isin(logodd_cluster)]
-    gene_list = highlogodd[highlogodd['object'].isin(oxi_gene['ID'])].object
+    gene_list = highlogodd[highlogodd['object'].isin(oxi_gene['ID'])].object.to_list()
+
     return(gene_list)
