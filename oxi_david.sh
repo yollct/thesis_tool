@@ -1,7 +1,10 @@
 #!/bin/bash
+##term enrichment analysis for oxidation/repair related gene
 
-GENELIST=`python -c 'from oxi_david import *; print(",".join(oxi_genelist()))'`
+read -p 'Enter the name of the results folder: ' data
+
+GENELIST=`python 'from oxi_david import *; print(",".join(oxi_genelist()))'`
 echo $GENELIST
 
-BG=`python -c 'from oxi_david import *; print(",".join(oxi_bg()))'`
+BG=`python 'from oxi_david import *; print(",".join(oxi_bg()))'`
 echo $BG

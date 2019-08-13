@@ -1,5 +1,5 @@
 #! /bin/bash
 
-FOO=`python -c 'from oxi_david import *; print(" ".join(oxi_gene_list()))'`
-echo $FOO
+read -p "data " data
 
+python3 try.py $data
