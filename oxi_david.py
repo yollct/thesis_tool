@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import sys
 
 
 def oxi_genelist(data):
@@ -45,7 +44,4 @@ def oxi_bg(data):
     bg = highlogodd.ENSEMBL.to_list()
     return(bg)
 
-if __name__ == "__main__":
-    oxi_genelist(data)
-    oxi_bg(data)
     

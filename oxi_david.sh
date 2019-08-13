@@ -3,8 +3,9 @@
 
 read -p 'Enter the name of the results folder: ' data
 
-GENELIST=`python 'from oxi_david import *; print(",".join(oxi_genelist()))'`
+GENELIST=`python -c $data 'from oxi_david import *; import sys; data=sys.argv[1]; print(",".join(oxi_genelist(data)))'`
 echo $GENELIST
 
-BG=`python 'from oxi_david import *; print(",".join(oxi_bg()))'`
+BG=`python -c $data 'from oxi_david import *; import sys; data=sys.argv[1]; print(",".join(oxi_bg(data)))'`
 echo $BG
+echo yay?
