@@ -7,7 +7,8 @@ BG=`python -c 'from oxi_david import *; print(",".join(oxi_bg('$data')))'`
 
 cd /home/chit/PythonClient-1.1/PythonClient
 
-python try.py $data $GENELIST $BG
+python oxi_termdavid.py $data $GENELIST $BG
+echo DAVID finished!
 
 cd /home/chit/Desktop/Thesis/thesis_tool
 
