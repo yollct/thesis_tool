@@ -9,16 +9,22 @@ then
     IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_clusters.txt"
     for all_cluster in $all_clusters
     do
-        python txt2csv.py $data $all_cluster
-        echo Cluster $all_cluster file is converted to txt.
+        if [ -e /home/chit/Desktop/Thesis/results/$data/clust$all_cluster.txt.termClusteringReport.txt ]
+        then
+            echo cluster $all_cluster is finished!
+            continue
+        else
+            python txt2csv.py $data $all_cluster
+            echo Cluster $all_cluster file is converted to txt.
 
-        cd /home/chit/PythonClient-1.1/PythonClient
-        case $job in
-            "termenrich") python DAVIDtermenrich.py $data $all_cluster ;;              
-            "chart") python DAVIDenrich.py $data $all_cluster ;;
-        esac
-        cd /home/chit/Desktop/Thesis/thesis_tool
-        echo Finished running Cluster $all_cluster.
+            cd /home/chit/PythonClient-1.1/PythonClient
+            case $job in
+               "termenrich") python DAVIDtermenrich.py $data $all_cluster ;;              
+                "chart") python DAVIDenrich.py $data $all_cluster ;;
+            esac
+            cd /home/chit/Desktop/Thesis/thesis_tool
+            echo Finished running Cluster $all_cluster.
+        fi
     done
 else
     for cluster in $clusters

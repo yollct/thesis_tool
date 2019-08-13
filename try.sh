@@ -1,11 +1,12 @@
 #! /bin/bash
 
+read -p "data" data
+read -p "cls " cll
 
-read -p 'Enter the name of the results folder: ' data
+if [ -e /home/chit/Desktop/Thesis/results/$data/clust$cll.txt.termClusteringReport.txt ];
+then    
+    echo yes
+else
+    echo no
+fi
 
-IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_connect.txt"
-    
-for all in $all_clusters
-do 
-    echo $all
-done
