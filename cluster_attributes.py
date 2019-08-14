@@ -1,3 +1,5 @@
+#!/bin/python3.7
+
 import pandas as pd
 import numpy as np
 import networkx as nx
@@ -43,6 +45,6 @@ nx.set_node_attributes(G, final_dict)
 
 nx.write_graphml(G, "/home/chit/Desktop/Thesis/results/{}/terms_connectivity.graphml".format(data))
 
-df = nx.to_pandas_dataframe(G)
-with open("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data),"w") as f:
-    f.write(df)
+#df = nx.to_pandas_adjacency(G)
+final.set_index('Cluster').fillna(0).to_csv("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data))
+

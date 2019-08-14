@@ -3,9 +3,11 @@ import sys
 import pandas as pd 
 import numpy as np
 
-resf = input("Enter the name of the results folder:")
-c1 = input("Enter the first cluster to combine:")
-c2 = input("Now enter the second one:")
+resf = sys.argv[1]
+com = sys.argv[2]
+
+c1 = com.split('_')[0]
+c2 = com.split('_')[1]
 
 cluster1 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(resf,c1)).read()
 cluster2 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(resf,c2)).read()

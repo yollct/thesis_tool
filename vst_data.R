@@ -58,16 +58,18 @@ table_30min
 
 ###new data
 #import data
-expnew <- read.csv("/home/chit/Desktop/Thesis/data/transcriptome/4timepoints/condition_table.csv")
-rnanew <- read.csv("/home/chit/Desktop/Thesis/data/transcriptome/4timepoints/genecounts_16h_7d.csv", header = T)
+expnew <- read.csv("/home/chit/Desktop/Thesis/data/4timepoints/condition_table.csv")
+#rnanew <- read.csv("/home/chit/Desktop/Thesis/data/transcriptome/4timepoints/genecounts_16h_7d.csv", header = T)
+rnanew <- read.csv("/home/chit/Desktop/Thesis/data/4timepoints/new_rna_readcounts.csv")
 
 #filter data for new 16h and 7d
 infnew <- expnew %>%
   filter(Wartezeit=="16hr" | Wartezeit=="7days") %>%
-  filter(seq=="SOLiD")
-newnme <- paste0("rna",infnew$name)
-new_timetable <- rnanew[,newnme]
-new_timetable$GENEID <- rnanew$GENEID
+  filter(seq=="Next-Seq1")
+newnme <- infnew$name
+
+new_timetable <- rnanew[, colnames(rnanew) %in% newnme]
+new_timetable$GENEID <- rnanew$gene
 
 #filter out not expressed genes
 new_timetable$rowsum <- rowSums(new_timetable[1:8])
@@ -87,10 +89,15 @@ dds_new <- DESeqDataSetFromMatrix(countData = newer_for_vst,
 res_new <- DESeq(dds_new)
 deseq_table <- counts(res_new, normalized=T)
 ##16hr 7days filter
-nme_16hr <- paste0("rna",infnew[infnew$Wartezeit=="16hr",]$name)
-nme_7d <- paste0("rna", infnew[infnew$Wartezeit=="7days",]$name)
-deseq_16hr <- deseq_table[,nme_16hr]
-deseq_7d <- deseq_table[,nme_7d]
+nme_16hr <- infnew[infnew$Wartezeit=="16hr",]$name
+nme_7d <- infnew[infnew$Wartezeit=="7days",]$name
+deseq_16hr <- deseq_table[,colnames(deseq_table) %in% nme_16hr]
+deseq_7d <- deseq_table[,colnames(deseq_table) %in% nme_7d]
+
+#columns
+final_16h <- data.frame(Symbol=newer_timetable$GENEID, deseq_16hr)
+final_7d <- data.frame(Symbol=newer_timetable$GENEID, deseq_7d)
+
 #vsd_new <- rlog(dds_new)
 #final_new <- assays(vsd_new)[[1]]
 #final_final <- data.frame(GENEID=newgenes, COMMON="16h", final_new)
@@ -99,5 +106,5 @@ deseq_7d <- deseq_table[,nme_7d]
 
 
 #save
-write.csv(deseq_16hr, "/home/chit/Desktop/Thesis/data/transcriptome/4timepoints/norm_16h.csv", row.names = F)
-write.csv(deseq_7d, "/home/chit/Desktop/Thesis/data/transcriptome/4timepoints/norm_7d.csv", row.names = F)
+write.csv(final_16h, "/home/chit/Desktop/Thesis/data/4timepoints/id_norm_16h_nexseq1.csv", row.names = F)
+write.csv(final_7d, "/home/chit/Desktop/Thesis/data/4timepoints/id_norm_7d_nexseq1.csv", row.names = F)
