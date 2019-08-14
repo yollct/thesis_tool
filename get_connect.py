@@ -7,7 +7,7 @@ import sys
 
 data = input("Enter the name of the results folder: ")
 
-edge = pd.read_csv("/data/home/students/chitp/Thesis/results/{}/connectivity_edge.csv".format(data))
+edge = pd.read_csv("/data/home/students/chit/Thesis/results/{}/connectivity_edge.csv".format(data))
 
 new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0.05)]
 
