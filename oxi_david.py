@@ -46,7 +46,7 @@ def oxi_bg(data):
     return(bg) """
 
 oxi_gene = pd.read_excel("/data/home/students/chit/Thesis/data/4timepoints/GeneListed_Oxi_Repair.xlsx")
-clusters = pd.read_csv("/data/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data), sep="\t")
+clusters = pd.read_csv("/data/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
 
 with open("/data/home/students/chit/Thesis/results/{}/all_connect.txt".format(data)) as f:
     connect = f.read().split("\n")
