@@ -5,7 +5,7 @@ library(org.Hs.eg.db)
 arg <- commandArgs()
 data <- arg[6]
 
-clusters = read.csv(sprintf("/data/home/students/chit/Thesis/results/%s/cluster_table.csv", data))
+clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv", data))
 
 ens <- AnnotationDbi::select(org.Hs.eg.db,
                              keys=as.character(clusters$object),
@@ -14,6 +14,6 @@ ens <- AnnotationDbi::select(org.Hs.eg.db,
 
 final <- inner_join(clusters, ens, by=c("object"="SYMBOL"))
 
-write.table(final, sprintf("/data/home/students/chit/Thesis/results/%s/cluster_table.csv", data), row.names = F, sep="\t")
+write.table(final, sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv", data), row.names = F, sep="\t")
 
 head(final)

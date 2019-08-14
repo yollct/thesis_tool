@@ -45,10 +45,10 @@ def oxi_bg(data):
     bg = highlogodd.ENSEMBL.to_list()
     return(bg) """
 
-oxi_gene = pd.read_excel("/data/home/students/chit/Thesis/data/4timepoints/GeneListed_Oxi_Repair.xlsx")
-clusters = pd.read_csv("/data/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data), sep="\t")
+oxi_gene = pd.read_excel("/home/chit/Desktop/Thesis/data/4timepoints/GeneListed_Oxi_Repair.xlsx")
+clusters = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data), sep="\t")
 
-with open("/data/home/students/chit/Thesis/results/{}/all_connect.txt".format(data)) as f:
+with open("/home/chit/Desktop/Thesis/results/{}/all_connect.txt".format(data)) as f:
     connect = f.read().split("\n")
 
 logodd_cluster = []
@@ -65,10 +65,10 @@ highlogodd = clusters[clusters['cluster'].isin(logodd_cluster)].dropna()
 gene_list = highlogodd[highlogodd['object'].isin(oxi_gene['ID'])].ENSEMBL.to_list()
 bg = highlogodd.ENSEMBL.to_list()
 
-with open("/data/home/students/chit/Thesis/results/{}/oxi_genelist.txt".format(data), "w") as genelist:
+with open("/home/chit/Desktop/Thesis/results/{}/oxi_genelist.txt".format(data), "w") as genelist:
     for a in gene_list:
         genelist.write(a+"\n")
 
-with open("/data/home/students/chit/Thesis/results/{}/oxi_bg.txt".format(data), "w") as bgg:
+with open("/home/chit/Desktop/Thesis/results/{}/oxi_bg.txt".format(data), "w") as bgg:
     for b in bg:
         bgg.write(b+"\n")
