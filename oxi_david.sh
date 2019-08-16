@@ -6,7 +6,8 @@ python oxi_david.py $data
 
 cd /home/chit//myDAVIDAPI/PythonClient
 
-python oxi_termdavid.py $data 
+python oxi_termdavid.py $data
+
 echo DAVID finished!
 
 cd /home/chit/Desktop/Thesis/thesis_tool

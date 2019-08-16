@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 import sys
 
-data=sys.argv[1]
-
 """ def oxi_genelist(data):
     oxi_gene = pd.read_excel("/home/chit/Desktop/Thesis/data/4timepoints/GeneListed_Oxi_Repair.xlsx")
     clusters = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data), sep="\t")
@@ -44,6 +42,8 @@ def oxi_bg(data):
     highlogodd = clusters[clusters['cluster'].isin(logodd_cluster)].dropna()
     bg = highlogodd.ENSEMBL.to_list()
     return(bg) """
+
+data=sys.argv[1]
 
 oxi_gene = pd.read_excel("/home/chit/Desktop/Thesis/data/4timepoints/GeneListed_Oxi_Repair.xlsx")
 clusters = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data), sep="\t")
