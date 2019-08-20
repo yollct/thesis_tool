@@ -17,7 +17,7 @@ then
             python txt2csv.py $data $all_cluster
             echo Cluster $all_cluster file is converted to txt.
 
-            cd /home/chit/PythonClient-1.1/PythonClient
+            cd /home/chit/myDAVIDAPI/PythonClient
             case $job in
                "termenrich") python DAVIDtermenrich.py $data $all_cluster ;;              
                 "chart") python DAVIDenrich.py $data $all_cluster ;;
