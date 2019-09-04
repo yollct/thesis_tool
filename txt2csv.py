@@ -1,5 +1,6 @@
 import csv
 import sys
+import os
 
 folder = sys.argv[1]
 cluster = sys.argv[2]
@@ -9,4 +10,6 @@ with open("/home/chit/Desktop/Thesis/results/{}/clust{}.txt".format(folder,clust
         [ my_output_file.write(" ".join(row)+'\n') for row in csv.reader(my_input_file)]
     my_output_file.close()
 
+
+os.remove("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(folder,cluster))
     

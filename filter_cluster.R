@@ -7,7 +7,7 @@ arg <- commandArgs()
 result <- arg[6]
 input <- arg[7]
 
-clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv", result),sep="\t")
+clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv",result),sep="\t")
 
 filterclust_ensm <- function(clust){
   clu <- clusters %>%

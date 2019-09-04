@@ -4,8 +4,10 @@
 
 
 read -p 'Enter the name of the results folder: ' data
-read -p 'High log odd data or connect clusters? (h/c)' type
+read -p 'High log odd data or connect clusters or custom? (h/c/custom)' type
+read -p "enter the clusters to combine (c1_c2_c3): " combin
 read -p 'The job in david (termenrich, chart): ' job
+
 
 case $type in
     "c")
@@ -42,11 +44,24 @@ case $type in
 
         cd /home/chit/myDAVIDAPI/PythonClient
         case $job in
-            "termenrich") python DAVIDtermenrich.py $data highlog ;;              
-            "chart") python DAVIDenrich.py $data highlog;;
+            "termenrich") python DAVIDtermenrich.py $data $high_log_odd ;;              
+            "chart") python DAVIDenrich.py $data $high_log_odd ;;
         esac
         cd /home/chit/Desktop/Thesis/thesis_tool
         echo Finished running Cluster $all.
     ;;
-esac
+    "custom")
+        python3 combine_cluster.py $data $combin
+        echo clust $combin is saved in $data folder.
+
+        cd /home/chit/myDAVIDAPI/PythonClient
+        case $job in
+            "termenrich") python DAVIDtermenrich.py $data $combin ;;              
+            "chart") python DAVIDenrich.py $data $combin ;;
+        esac
+        cd /home/chit/Desktop/Thesis/thesis_tool
+        echo Finished running Cluster $all.
+    ;;
+
+ esac
         

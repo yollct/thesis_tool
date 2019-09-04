@@ -9,7 +9,7 @@ data = input("Enter the name of the results folder: ")
 
 edge = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/connectivity_edge.csv".format(data))
 
-new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0)]
+new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0.)]
 
 interact = new_edge[['Cluster 1', 'Cluster 2']]
 interact.columns=['c1','c2']

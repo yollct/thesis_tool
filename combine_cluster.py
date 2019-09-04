@@ -31,4 +31,4 @@ else:
     
     highlogfinal = pd.concat(dfs)
 
-    highlogfinal.to_csv("/home/chit/Desktop/Thesis/results/{}/clusthighlog.txt".format(resf),sep="\t",index=False, header=None)
+    highlogfinal.to_csv("/home/chit/Desktop/Thesis/results/{}/clust{}.txt".format(resf, com),sep="\t",index=False, header=None)
