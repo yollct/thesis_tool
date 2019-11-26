@@ -13,7 +13,7 @@ for i in range(2, len(sys.argv)):
 
 alles = []
 for i in clusters:
-    c = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/clust{}.txt.termClusteringReport.txt".format(data, i), sep="\t")
+    c = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/clust{}.txt.termClusteringReport.txt".format(data, i), sep="\t")
     
     #convert terms into dict for each cluster report
     cols = ['mainTerm','enrichmentscore']
@@ -35,7 +35,7 @@ for i in range(1,len(alles)):
 final_dict = final.set_index('Cluster').to_dict('index')
 
 #edge1 = edge[['Cluster 1', 'Cluster 2']]
-ori = nx.read_graphml("/home/chit/Desktop/Thesis/results/{}/connectivity.graphml".format(data))
+ori = nx.read_graphml("/nfs/home/students/chit/Thesis/results/{}/connectivity.graphml".format(data))
 
 #create graph and position
 mapping = {node[0] : node[1]['name'] for node in ori.nodes(data=True)}
@@ -43,8 +43,8 @@ G = nx.relabel_nodes(ori, mapping)
 
 nx.set_node_attributes(G, final_dict)
 
-nx.write_graphml(G, "/home/chit/Desktop/Thesis/results/{}/terms_connectivity.graphml".format(data))
+nx.write_graphml(G, "/nfs/home/students/chit/Thesis/results/{}/terms_connectivity.graphml".format(data))
 
 #df = nx.to_pandas_adjacency(G)
-final.set_index('Cluster').fillna(0).to_csv("/home/chit/Desktop/Thesis/results/{}/terms_connectivity.csv".format(data))
+final.set_index('Cluster').fillna(0).to_csv("/nfs/home/students/chit/Thesis/results/{}/terms_connectivity.csv".format(data))
 

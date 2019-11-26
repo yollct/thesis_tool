@@ -25,12 +25,12 @@ for u,v in final.items():
 
 highlogodd = list(set(highlo))
 
-with open("/home/chit/Desktop/Thesis/results/{}/all_connect.txt".format(data), 'w') as file:
+with open("/nfs/home/students/chit/Thesis/results/{}/all_connect.txt".format(data), 'w') as file:
     for key, value in final.items():
         file.write(value[0]+'_'+value[1]+'\n')
     file.close()
 
-with open("/home/chit/Desktop/Thesis/results/{}/high_log_odd.txt".format(data), "w") as f:
+with open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data), "w") as f:
     for x in highlogodd:
         f.write(x+'_')
     f.close()
@@ -42,6 +42,6 @@ for c in clusters:
     a = c.split(" ")
     clustersno.append(a[1])
 
-with open("/home/chit/Desktop/Thesis/results/{}/all_clusters.txt".format(data), "w") as f:
+with open("/nfs/home/students/chit/Thesis/results/{}/all_clusters.txt".format(data), "w") as f:
     for d in clustersno:
         f.write(d+'\n')

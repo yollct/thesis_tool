@@ -4,11 +4,11 @@ read -p "Enter the name of the results folder: " data
 
 python oxi_david.py $data
 
-cd /home/chit//myDAVIDAPI/PythonClient
+cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
 
 python oxi_termdavid.py $data
 
 echo DAVID finished!
 
-cd /home/chit/Desktop/Thesis/thesis_tool
+cd /nfs/home/students/chit/Thesis/thesis_tool
 

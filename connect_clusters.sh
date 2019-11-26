@@ -11,11 +11,11 @@ read -p 'The job in david (termenrich, chart): ' job
 
 case $type in
     "c")
-        IFS=$"\n" read -d " " -r -a all_clusters  < "/home/chit/Desktop/Thesis/results/$data/all_connect.txt"
+        IFS=$"\n" read -d " " -r -a all_clusters  < "/nfs/home/students/chit/Thesis/results/$data/all_connect.txt"
     
         for all in $all_clusters
             do  
-            if [ -e /home/chit/Desktop/Thesis/results/$data/clust$all.txt.termClusteringReport.txt ]
+            if [ -e /nfs/home/students/chit/Thesis/results/$data/clust$all.txt.termClusteringReport.txt ]
             then 
                 echo Cluster $all is finished!
                 continue
@@ -31,44 +31,44 @@ case $type in
                     "termenrich") python DAVIDtermenrich.py $data $all ;;              
                     "chart") python DAVIDenrich.py $data $all;;
                 esac
-                cd /home/chit/Desktop/Thesis/thesis_tool
+                cd /nfs/home/students/chit/Desktop/Thesis/thesis_tool
                 echo Finished running Cluster $all.
             fi
             done 
         ;;
     "h")
-        IFS= read -d "" -r -a high_log_odd  < "/home/chit/Desktop/Thesis/results/$data/high_log_odd.txt"
+        IFS= read -d "" -r -a high_log_odd  < "/nfs/home/students/chit/Thesis/results/$data/high_log_odd.txt"
         echo $high_log_odd
         python3 combine_cluster.py $data $high_log_odd
         echo clust_highlog.txt is saved in $data folder.
 
-        cd /home/chit/myDAVIDAPI/PythonClient
+        cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
         case $job in
             "termenrich") python DAVIDtermenrich.py $data $high_log_odd ;;              
             "chart") python DAVIDenrich.py $data $high_log_odd ;;
         esac
-        cd /home/chit/Desktop/Thesis/thesis_tool
+        cd /nfs/home/students/chit/Thesis/thesis_tool
         echo Finished running Cluster $all.
     ;;
     "custom")
         python3 combine_cluster.py $data $combin
         echo clust $combin is saved in $data folder.
 
-        cd /home/chit/myDAVIDAPI/PythonClient
+        cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
         case $job in
             "termenrich") python DAVIDtermenrich.py $data $combin ;;              
             "chart") python DAVIDenrich.py $data $combin ;;
         esac
-        cd /home/chit/Desktop/Thesis/thesis_tool
+        cd /nfs/home/students/chit/Desktop/Thesis/thesis_tool
         echo Finished running Cluster $all.
     ;;
     "p") 
-        cd /home/chit/myDAVIDAPI/PythonClient
+        cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
         case $job in
-            "termenrich") python DAVIDtermenrich.py $data "/home/chit/Desktop/Thesis/results/3.09_comparison/comparison_node_6_66_68_40.txt";;
+            "termenrich") python DAVIDtermenrich.py $data "/nfs/home/students/chit/Thesis/results/3.09_comparison/comparison_node_6_66_68_40.txt";;
             "chart") python DAVIDenrich.py $data $comparison;;
         esac
-        cd /home/chit/Desktop/Thesis/thesis_tool
+        cd /nfs/home/students/chit/Thesis/thesis_tool
         echo Finished running $comparison.
     ;;
  esac
