@@ -11,11 +11,11 @@ if len(com.split('_'))==2:
     c1 = com.split('_')[0]
     c2 = com.split('_')[1]
 
-    cluster1 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(resf,c1)).read()
-    cluster2 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(resf,c2)).read()
+    cluster1 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.txt".format(resf,c1)).read()
+    cluster2 = open("/home/chit/Desktop/Thesis/results/{}/clust{}.txt".format(resf,c2)).read()
     combine = cluster1 + cluster2
 
-    with open('/home/chit/Desktop/Thesis/results/{}/clust{}_{}.csv'.format(resf,c1,c2),"w") as f:
+    with open('/home/chit/Desktop/Thesis/results/{}/clust{}_{}.txt'.format(resf,c1,c2),"w") as f:
         f.write(combine)
     f.close()
 
@@ -27,7 +27,7 @@ else:
 
     dfs=[]
     for i in cc:
-        dfs.append(pd.read_csv("/home/chit/Desktop/Thesis/results/{}/clust{}.csv".format(resf,i),header=None))
+        dfs.append(pd.read_csv("/home/chit/Desktop/Thesis/results/{}/clust{}.txt".format(resf,i),header=None))
     
     highlogfinal = pd.concat(dfs)
 

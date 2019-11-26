@@ -7,6 +7,7 @@ import sys
 
 data = input("Enter the name of the results folder: ")
 
+nodes = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data))
 edge = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/connectivity_edge.csv".format(data))
 
 new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0.)]
@@ -33,3 +34,14 @@ with open("/home/chit/Desktop/Thesis/results/{}/high_log_odd.txt".format(data), 
     for x in highlogodd:
         f.write(x+'_')
     f.close()
+
+##get all clusters
+clusters = np.unique(nodes['cluster'])
+clustersno = []
+for c in clusters:
+    a = c.split(" ")
+    clustersno.append(a[1])
+
+with open("/home/chit/Desktop/Thesis/results/{}/all_clusters.txt".format(data), "w") as f:
+    for d in clustersno:
+        f.write(d+'\n')
