@@ -12,7 +12,7 @@ hlo_genes = []
 
 for x in clusters:
     cluster = "Cluster "+ x
-    get_genes = cluster_table.loc[[cluster_table['Cluster']==cluster]]
+    get_genes = cluster_table.loc[[cluster_table['cluster']==cluster]]
     hlo_genes.append(get_genes['object'])
 
 
