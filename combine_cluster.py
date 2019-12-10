@@ -3,32 +3,22 @@ import sys
 import pandas as pd 
 import numpy as np
 
-resf = sys.argv[1]
-com = sys.argv[2]
+data = sys.argv[1]
+com = open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data)).read()
+cluster_table = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv")
+clusters = com.split('_')
 
-if len(com.split('_'))==2:
+hlo_genes = []
 
-    c1 = com.split('_')[0]
-    c2 = com.split('_')[1]
+for x in clusters:
+    cluster = "Cluster "+ x
+    get_genes = cluster_table.loc[[cluster_table['Cluster']==cluster]]
+    hlo_genes.append(get_genes['object'])
 
-    cluster1 = open("/nfs/home/students/chit/Thesis/results/{}/clust{}.txt".format(resf,c1)).read()
-    cluster2 = open("/nfs/home/students/chit/Thesis/results/{}/clust{}.txt".format(resf,c2)).read()
-    combine = cluster1 + cluster2
 
-    with open('/nfs/home/students/chit/Thesis/results/{}/clust{}_{}.txt'.format(resf,c1,c2),"w") as f:
-        f.write(combine)
-    f.close()
+with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt'.format(data),"w") as f:
+    for i in hlo_genes:
+        f.write(i+"\n")
+f.close()
 
-    print("The combined file is clust{}_{}.csv in {} folder.".format(c1,c2,resf))
-else:
-    cc = com.split("_")
-    ##del the last empty value of the list
-    del cc[-1]
-
-    dfs=[]
-    for i in cc:
-        dfs.append(pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/clust{}.txt".format(resf,i),header=None))
-    
-    highlogfinal = pd.concat(dfs)
-
-    highlogfinal.to_csv("/nfs/home/students/chit/Thesis/results/{}/clust{}.txt".format(resf, com),sep="\t",index=False, header=None)
+print("The high log genes are saved in {} folder.".format(data))
