@@ -5,7 +5,7 @@ import sys
 ## get the connectivity edges from edge table
 ##p<0.001 
 
-data = input("Enter the name of the results folder: ")
+data=sys.argv[1]
 
 nodes = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data))
 edge = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/connectivity_edge.csv".format(data))
