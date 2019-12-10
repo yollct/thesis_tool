@@ -22,6 +22,8 @@ echo $high_log_odd
 python3 combine_cluster.py $data 
 echo clust_highlog.txt is saved in $data folder.
 
+Rscript ensemblid.R $data
+
 cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
 case $job in
     "termenrich") python DAVIDtermenrich.py $data ;;              
