@@ -12,7 +12,7 @@ hlo_genes = []
 
 for x in clusters:
     cluster = "Cluster "+ x
-    get_genes = cluster_table.loc[cluster_table.cluster=="Cluster 82", "object"].to_list()
+    get_genes = cluster_table.loc[cluster_table.cluster=="Cluster 82"]['object'].to_list()
     with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt'.format(data),"w") as f:
         for i in get_genes:
             f.write(i+"\n")
