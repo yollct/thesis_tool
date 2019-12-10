@@ -5,7 +5,7 @@ import numpy as np
 
 data = sys.argv[1]
 com = open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data)).read()
-cluster_table = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv")
+cluster_table = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
 clusters = com.split('_')
 
 hlo_genes = []
