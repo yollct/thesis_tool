@@ -7,8 +7,8 @@ import sys
 
 data=sys.argv[1]
 
-nodes = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/cluster_table.csv".format(data))
-edge = pd.read_csv("/home/chit/Desktop/Thesis/results/{}/connectivity_edge.csv".format(data))
+nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
+edge = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/connectivity_edge.csv".format(data))
 
 new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0.)]
 
