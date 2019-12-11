@@ -30,4 +30,3 @@ else:
             f.write(i+"\n")
     f.close()
 
-print("The high log genes are saved in {} folder.".format(data))
