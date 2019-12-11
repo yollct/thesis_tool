@@ -36,5 +36,5 @@ def david_termenrich(david, term):
 if __name__ == "__main__":
         david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data), sep="\t")
         david_termenrich(david, 4)
-        plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data))
+        plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), width=600)
         plt.show()
