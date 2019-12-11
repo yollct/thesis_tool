@@ -4,9 +4,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.patches as mpatches
-from sklearn.metrics import silhouette_samples, silhouette_score
-from gseapy.parser import Biomart
-from scipy.stats.stats import pearsonr
 import sys
 from os import listdir
 
