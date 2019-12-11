@@ -14,7 +14,7 @@ def david_termenrich(david, term, data):
     david = david[three]
     w = len(david)
     size = np.array(david['%']*10)
-    plt.figure(figsize=(7,w/2))
+    plt.figure()
     
     plt.scatter(david['Pvalue'], david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
     plt.colorbar(label='Cluster enrichment score')
