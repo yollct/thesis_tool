@@ -8,8 +8,8 @@ data <- arg[6]
 mydir <- list.files(sprintf("/nfs/home/students/chit/Thesis/results/%s/",data))
 num_to_iter <- sum(grepl("highlogenes", mydir))
 
-convertoens <- function(data, i){
-    compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",data,i))
+convertoens <- function(d, i){
+    compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",d,i))
 
     ens <- AnnotationDbi::select(org.Hs.eg.db,
                             keys=as.character(compar),
@@ -17,7 +17,7 @@ convertoens <- function(data, i){
                             columns=c("SYMBOL","ENSEMBL"))
 
 
-    outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", data,i))
+    outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", d,i))
     writeLines(ens$ENSEMBL, outfile)
     close(outfile)
 }

@@ -15,7 +15,7 @@ for x in clusters:
     cluster = "Cluster "+ x
     get_genes = cluster_table.loc[cluster_table.cluster=="Cluster 82"]['object'].to_list()
     if len(hlo_genes)>3000:
-        num_to_pick = len(hlo_genes)//3000+1
+        num_to_pick = len(hlo_genes)//3000
         for j in range(num_to_pick):
             random_genes = random.sample(hlo_genes, 2999)
             with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes{}.txt'.format(data,j),"w") as f:
