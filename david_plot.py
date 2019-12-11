@@ -11,7 +11,7 @@ import sys
 from os import listdir
 
 data = sys.argv[1]
-david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt.termClusteringReport.txt'.format(data))
+david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data))
 
 ##check highlogenes.txt
 mydir = listdir('/nfs/home/students/chit/Thesis/results/{}/'.format(data))
@@ -43,8 +43,8 @@ if __name__ == "__main__":
     if sum("highlogenes" in m for m in mydir)>1:
         num_to_iter = sum("highlogenes" in m for m in mydir)
         for i in range(num_to_iter):
-            david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes{}.txt.termClusteringReport.txt'.format(data,i))
+            david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens{}.txt.termClusteringReport.txt'.format(data,i))
             plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid{}.pdf'.format(data,i), dpi=600)
     else: 
-        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt.termClusteringReport.txt'.format(data,))
+        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data,))
         plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data,), dpi=600)
