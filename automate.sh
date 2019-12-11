@@ -14,13 +14,13 @@ esac
 done
 
 ##get all cluster in cluster network
-python3 firstscript.py $data
+python3 firstscript.py $data $pvalue
 echo Clusters are extracted from network.
 
 ##read the cluster in highlogodd file
 IFS= read -d "" -r -a high_log_odd  < "/nfs/home/students/chit/Thesis/results/$data/high_log_odd.txt"
 echo $high_log_odd
-python3 combine_cluster.py $data $pvalue
+python3 combine_cluster.py $data 
 echo clust_highlog.txt is saved in $data folder.
 
 Rscript ensemblid.R $data
