@@ -11,8 +11,8 @@ data = sys.argv[1]
 
 
 
-def david_termenrich(david):
-    three = (david['cluster']<3)
+def david_termenrich(david, term):
+    three = (david['cluster']<term)
     david = david[three]
     w = len(david)
     size = np.array(david['%']*10)
@@ -35,6 +35,6 @@ def david_termenrich(david):
 
 if __name__ == "__main__":
         david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data), sep="\t")
-        david_termenrich(david)
-        plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), dpi=600)
+        david_termenrich(david, 4)
+        plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data))
         plt.show()
