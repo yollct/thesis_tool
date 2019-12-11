@@ -6,7 +6,7 @@ import sys
 ##p<0.001 
 
 data=sys.argv[1]
-pvalue = int(sys.argv[2])
+pvalue = float(sys.argv[2])
 
 nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
 edge = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/connectivity_edge.csv".format(data))
