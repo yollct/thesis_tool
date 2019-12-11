@@ -22,5 +22,4 @@ convertoens <- function(data, i){
     close(outfile)
 }
 
-foreach(i=num_to_iter) %do%
-    convertoens(data,i)
+foreach(i=num_to_iter) %do% convertoens(data,i)
