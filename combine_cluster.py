@@ -18,7 +18,7 @@ for x in clusters:
         num_to_pick = len(hlo_genes)//3000
         for j in range(num_to_pick):
             random_genes = random.sample(hlo_genes, 2999)
-            with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes{}.txt'.format(data,j),"w") as f:
+            with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes{}.txt'.format(data,j+1),"w") as f:
                 for i in random_genes:
                     f.write(i+"\n")
             f.close()
