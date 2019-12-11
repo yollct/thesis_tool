@@ -9,8 +9,6 @@ from os import listdir
 
 data = sys.argv[1]
 
-
-
 def david_termenrich(david, term, data):
     three = (david['cluster']<term)
     david = david[three]
@@ -35,5 +33,5 @@ def david_termenrich(david, term, data):
     
 if __name__ == "__main__":
         david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data), sep="\t")
-        david_plot = david_termenrich(david, 4)
+        david_plot = david_termenrich(david, 4, data)
         
