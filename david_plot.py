@@ -11,7 +11,6 @@ import sys
 from os import listdir
 
 data = sys.argv[1]
-david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data))
 
 ##check highlogenes.txt
 mydir = listdir('/nfs/home/students/chit/Thesis/results/{}/'.format(data))

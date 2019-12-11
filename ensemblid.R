@@ -20,6 +20,7 @@ convertoens <- function(d, i){
     outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", d,i))
     writeLines(ens$ENSEMBL, outfile)
     close(outfile)
+    file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",d,i))
 }
 
 foreach(i=num_to_iter) %do% convertoens(data,i)
