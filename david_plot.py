@@ -28,7 +28,7 @@ def david_termenrich(david, term, data):
     plt.legend(scatterpoints=1, frameon=False, title="Gene ratio", labelspacing=1)
    
     plt.title('DAVID functional annotation clustering')
-    plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), width=800)
+    plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), bbox_inches='tight')
     
     
 if __name__ == "__main__":
