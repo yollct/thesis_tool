@@ -24,7 +24,7 @@ if len(hlo_genes)>3000:
                 f.write(i+"\n")
         f.close()
 else:
-    with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes1.txt'.format(data),"w") as f:
+    with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt'.format(data),"w") as f:
         for i in hlo_genes:
             f.write(i+"\n")
     f.close()
