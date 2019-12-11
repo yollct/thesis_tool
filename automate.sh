@@ -31,5 +31,8 @@ case $job in
     "chart") python DAVIDenrich.py $data ;;
 esac
 cd /nfs/home/students/chit/Thesis/thesis_tool
-echo Finished running Cluster $all.
+echo Finished running DAVID!
+
+python david_plot.py $data
+echo DAVID table is plotted.
 
