@@ -8,7 +8,7 @@ data <- arg[6]
 mydir <- list.files(sprintf("/nfs/home/students/chit/Thesis/results/%s/",data))
 
 
-compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",d))
+compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
 
 ens <- AnnotationDbi::select(org.Hs.eg.db,
                             keys=as.character(compar),
@@ -16,9 +16,9 @@ ens <- AnnotationDbi::select(org.Hs.eg.db,
                             columns=c("SYMBOL","ENSEMBL"))
 
 
-outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt", d))
+outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt", data))
 writeLines(ens$ENSEMBL, outfile)
 close(outfile)
-file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",d))
+file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
 
 
