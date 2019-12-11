@@ -6,21 +6,19 @@ suppressMessages(library(foreach))
 arg <- commandArgs()
 data <- arg[6]
 mydir <- list.files(sprintf("/nfs/home/students/chit/Thesis/results/%s/",data))
-num_to_iter <- sum(grepl("highlogenes", mydir))
 
-convertoens <- function(d, i){
-    compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",d,i))
 
-    ens <- AnnotationDbi::select(org.Hs.eg.db,
+compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",d))
+
+ens <- AnnotationDbi::select(org.Hs.eg.db,
                             keys=as.character(compar),
                             keytype="SYMBOL",
                             columns=c("SYMBOL","ENSEMBL"))
 
 
-    outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", d,i))
-    writeLines(ens$ENSEMBL, outfile)
-    close(outfile)
-    file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",d,i))
-}
+outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt", d))
+writeLines(ens$ENSEMBL, outfile)
+close(outfile)
+file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",d))
 
-foreach(i=num_to_iter) %do% convertoens(data,i)
+

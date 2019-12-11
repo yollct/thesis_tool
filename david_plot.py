@@ -12,8 +12,6 @@ from os import listdir
 
 data = sys.argv[1]
 
-##check highlogenes.txt
-mydir = listdir('/nfs/home/students/chit/Thesis/results/{}/'.format(data))
 
 
 def david_termenrich(david):
@@ -39,11 +37,5 @@ def david_termenrich(david):
 
 
 if __name__ == "__main__":
-    if sum("highlogenes" in m for m in mydir)>1:
-        num_to_iter = sum("highlogenes" in m for m in mydir)
-        for i in range(num_to_iter):
-            david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens{}.txt.termClusteringReport.txt'.format(data,i+1))
-            plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid{}.pdf'.format(data,i+1), dpi=600)
-    else: 
         david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data))
         plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), dpi=600)
