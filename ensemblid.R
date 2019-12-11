@@ -7,28 +7,28 @@ data <- arg[6]
 mydir <- list.files(sprintf("/nfs/home/students/chit/Thesis/results/%s/",data))
 if (sum(grepl("highlogenes", mydir))>1){
 num_to_iter <- sum(grepl("highlogenes", mydir)
-for (i in 1:num_to_iter){
-compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",data,i))
+    for (i in 1:num_to_iter){
+        compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",data,i))
 
-ens <- AnnotationDbi::select(org.Hs.eg.db,
+        ens <- AnnotationDbi::select(org.Hs.eg.db,
                              keys=as.character(compar),
                              keytype="SYMBOL",
                              columns=c("SYMBOL","ENSEMBL"))
 
 
-outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", data,i))
-writeLines(ens$ENSEMBL, outfile)
-close(outfile)
+        outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens%s.txt", data,i))
+        writeLines(ens$ENSEMBL, outfile)
+        close(outfile)
 }} else {
-compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
+    compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
 
-ens <- AnnotationDbi::select(org.Hs.eg.db,
+    ens <- AnnotationDbi::select(org.Hs.eg.db,
                              keys=as.character(compar),
                              keytype="SYMBOL",
                              columns=c("SYMBOL","ENSEMBL"))
 
 
-outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt", data))
-writeLines(ens$ENSEMBL, outfile)
-close(outfile)
+    outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt", data))
+    writeLines(ens$ENSEMBL, outfile)
+    close(outfile)
 }
