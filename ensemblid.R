@@ -21,7 +21,7 @@ writeLines(ens$ENSEMBL, outfile)
 close(outfile)
 file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
 
-
+if (length(compar)>3000) {
 compard = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_david.txt",data))
 
 ens <- AnnotationDbi::select(org.Hs.eg.db,
@@ -34,4 +34,4 @@ outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_d
 writeLines(ens$ENSEMBL, outfile)
 close(outfile)
 file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_david.txt",data))
-
+}

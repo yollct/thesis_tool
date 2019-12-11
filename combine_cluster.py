@@ -12,8 +12,8 @@ clusters = com.split('_')
 hlo_genes = []
 
 for x in clusters:
-    cluster = "Cluster "+ x
-    get_genes = cluster_table.loc[cluster_table.cluster=="Cluster 82"]['object'].to_list()
+    ecluster = "Cluster "+ x
+    get_genes = cluster_table.loc[cluster_table.cluster==ecluster]['object'].to_list()
     for y in get_genes:
         hlo_genes.append(y)
 
