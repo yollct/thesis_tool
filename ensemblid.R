@@ -7,7 +7,6 @@ data <- arg[6]
 mydir <- list.files(sprintf("/nfs/home/students/chit/Thesis/results/%s/",data))
 if (sum(grepl("highlogenes", mydir))>1){
 num_to_iter <- sum(grepl("highlogenes", mydir)
-#clusters = read.csv(sprintf("/home/chit/Desktop/Thesis/results/%s/cluster_table.csv", data))
 for (i in 1:num_to_iter){
 compar = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes%s.txt",data,i))
 
