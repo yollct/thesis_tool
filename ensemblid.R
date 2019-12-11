@@ -22,3 +22,16 @@ close(outfile)
 file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes.txt",data))
 
 
+compard = readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_david.txt",data))
+
+ens <- AnnotationDbi::select(org.Hs.eg.db,
+                            keys=as.character(compar),
+                            keytype="SYMBOL",
+                            columns=c("SYMBOL","ENSEMBL"))
+
+
+outfile <- file(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_daivd_ens.txt", data))
+writeLines(ens$ENSEMBL, outfile)
+close(outfile)
+file.remove(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_david.txt",data))
+
