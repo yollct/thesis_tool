@@ -17,11 +17,12 @@ for x in clusters:
     for y in get_genes:
         hlo_genes.append(y)
 
-random_genes = random.sample(hlo_genes, 2999)
-with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes_david.txt'.format(data),"w") as f:
-    for i in random_genes:
-        f.write(i+"\n")
-f.close()
+if len(hlo_genes)>3000:
+        random_genes = random.sample(hlo_genes, 2999)
+        with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes_david.txt'.format(data,j),"w") as f:
+            for i in random_genes:
+                f.write(i+"\n")
+        f.close()
 
 with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt'.format(data),"w") as f:
     for i in hlo_genes:

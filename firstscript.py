@@ -6,11 +6,12 @@ import sys
 ##p<0.001 
 
 data=sys.argv[1]
+pvalue = sys.argv[2]
 
 nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
 edge = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/connectivity_edge.csv".format(data))
 
-new_edge = edge[(edge['p']<=0.001) & (edge['log-odds'].astype(float)>0.)]
+new_edge = edge[(edge['p']<=pvalue) & (edge['log-odds'].astype(float)>0.)]
 
 interact = new_edge[['Cluster 1', 'Cluster 2']]
 interact.columns=['c1','c2']

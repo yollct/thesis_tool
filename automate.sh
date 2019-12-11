@@ -3,12 +3,13 @@
 ##-d enter the name of folder
 ##high log odd automation
 #job - term
-while getopts d:j: option
+while getopts d:j:p: option
 do
 case "${option}"
 in 
 d) data=${OPTARG};;
 j) job=${OPTARG};;
+p) pvalue=${OPTARG};;
 esac
 done
 
