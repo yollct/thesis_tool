@@ -26,7 +26,7 @@ echo clust_highlog.txt is saved in $data folder.
 Rscript ensemblid.R $data
 echo Genes are converted to ensembl id.
 
-if [ -e /nfs/home/students/chit/Thesis/results/$data/clust$all_cluster.txt.termClusteringReport.txt ]
+if [ -e /nfs/home/students/chit/Thesis/results/$data/highlogenes_ens.txt.termClusteringReport.txt ]
     then
         echo Finished running DAVID!
         continue
@@ -45,4 +45,7 @@ echo DAVID table is plotted.
 
 python reactome.py $data
 echo Reactome result is plotted.
+
+Rscript reactome.R $data
+echo ReactomePA results is plotted.
 
