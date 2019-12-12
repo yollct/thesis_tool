@@ -46,6 +46,6 @@ echo DAVID table is plotted.
 python reactome.py $data
 echo Reactome result is plotted.
 
-Rscript reactome.R $data
+Rscript reactomepa.R $data
 echo ReactomePA results is plotted.
 
