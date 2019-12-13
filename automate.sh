@@ -27,6 +27,7 @@ Rscript ensemblid.R $data
 echo Genes are converted to ensembl id.
 
 if [ -e /nfs/home/students/chit/Thesis/results/$data/highlogenes_ens.txt.termClusteringReport.txt ]
+then
     echo Finished running DAVID!
 else            
     cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
