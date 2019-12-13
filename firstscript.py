@@ -9,7 +9,6 @@ data=sys.argv[1]
 pvalue = float(sys.argv[2])
 
 def get_edges(data, High_log_odd=True):
-    nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
     edge = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/connectivity_edge.csv".format(data))
 
     if High_log_odd==True:
@@ -20,6 +19,7 @@ def get_edges(data, High_log_odd=True):
     
 
 def connectivity_cluster(data, edges, high=True):
+    nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
     interact = edges[['Cluster 1', 'Cluster 2']]
     interact.columns=['c1','c2']
 
