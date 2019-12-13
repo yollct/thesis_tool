@@ -21,8 +21,8 @@ def gene_oxi_cluster(data):
     gene_oxi_cluster = n16_ns[n16_ns['object'].isin(gene_oxi)]['cluster'].unique()
     gene_repair_cluster = n16_ns[n16_ns['object'].isin(gene_repair)]['cluster'].unique()
     
-    hlo_oxi = gene_oxi_cluster[np.isin(gene_oxi_cluster, n16_hloc)]
-    hlo_repair = gene_repair_cluster[np.isin(gene_repair_cluster, n16_hloc)]
+    hlo_oxi = gene_oxi_cluster[np.isin(gene_oxi_cluster, n16_hloc)].tolist()
+    hlo_repair = gene_repair_cluster[np.isin(gene_repair_cluster, n16_hloc)].tolist()
     
     ##write file
     with open("/nfs/home/students/chit/Thesis/results/{}/gene_oxi_repair_clusters.txt".format(data), "w") as f:
