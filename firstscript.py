@@ -33,7 +33,7 @@ def connectivity_cluster(data, edges, high=True):
 
     highlogodd = list(set(highlo))
 
-    if high=True:
+    if high==True:
         with open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data), "w") as f:
             for x in highlogodd:
                 f.write(x+'_')
