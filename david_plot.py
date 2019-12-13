@@ -28,10 +28,10 @@ def david_termenrich(david, term, data):
     plt.legend(scatterpoints=1, frameon=False, title="Gene ratio", labelspacing=1)
    
     plt.title('DAVID functional annotation clustering')
-    plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highlodavid.pdf'.format(data), bbox_inches='tight', height=1000)
+    plt.savefig('/nfs/home/students/chit/Thesis/results/{}/{}_highlodavid.pdf'.format(data,data), bbox_inches='tight', height=1000)
     
     
 if __name__ == "__main__":
-        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data), sep="\t")
+        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/{}_highlogenes_ens.txt.termClusteringReport.txt'.format(data,data), sep="\t")
         david_plot = david_termenrich(david, 4, data)
         

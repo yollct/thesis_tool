@@ -49,4 +49,4 @@ for gr in [10,25,45]:
     plt.scatter([],[],s=gr*5, label=str(gr), c='k')
 plt.legend(scatterpoints=1, frameon=False, title="Gene ratio", labelspacing=1)
 
-plt.savefig('/nfs/home/students/chit/Thesis/results/{}/highloreactome.pdf'.format(data), bbox_inches='tight')
+plt.savefig('/nfs/home/students/chit/Thesis/results/{}/{}_highloreactome.pdf'.format(data,data), bbox_inches='tight')
