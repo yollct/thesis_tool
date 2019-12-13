@@ -46,6 +46,7 @@ def connectivity_cluster(data, edges, high=True):
 
 def get_all_clusters(data):
 ##get all clusters
+    nodes = pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
     clusters = np.unique(nodes['cluster'])
     clustersno = []
     for c in clusters:
