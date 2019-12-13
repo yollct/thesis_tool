@@ -46,8 +46,5 @@ echo DAVID table is plotted.
 python reactome.py $data
 echo Reactome result is plotted.
 
-Rscript reactomepa.R $data $scale
-echo ReactomePA results is plotted.
-
 python gene_oxi_repair_clusters.py $data
 echo The clusters for oxi and repiar genes is extracted.
