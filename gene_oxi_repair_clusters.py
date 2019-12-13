@@ -13,7 +13,7 @@ def gene_oxi_cluster(data):
     gene_oxi = geneoxi['ID'].to_list()
     gene_repair = generepair['Gen'].to_list()
 
-    n16_ns=pd.read_csv("/nfs/home/students/chit/Thesis/results/{}}/cluster_table.csv".format(data))
+    n16_ns=pd.read_csv("/nfs/home/students/chit/Thesis/results/{}/cluster_table.csv".format(data))
     n16_hloc=open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data), "r").read()
     n16_hloc = n16_hloc.split('_')[:-1]
     n16_hloc = ['Cluster '+ x for x in n16_hloc]
