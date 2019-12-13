@@ -32,6 +32,6 @@ def david_termenrich(david, term, data):
     
     
 if __name__ == "__main__":
-        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/{}_highlogenes_ens.txt.termClusteringReport.txt'.format(data,data), sep="\t")
+        david = pd.read_csv('/nfs/home/students/chit/Thesis/results/{}/highlogenes_ens.txt.termClusteringReport.txt'.format(data,data), sep="\t")
         david_plot = david_termenrich(david, 4, data)
         
