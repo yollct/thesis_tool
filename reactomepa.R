@@ -7,7 +7,7 @@ suppressMessages(library(DESeq2))
 arg <- commandArgs()
 data <- arg[6]
 scale <- arg[7]
-reactomeplots <- function(data){
+reactomeplots <- function(data,scale){
 genes <- readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt",data))
 entrez <- AnnotationDbi::select(org.Hs.eg.db,
                                 keys = genes,
