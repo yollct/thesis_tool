@@ -16,9 +16,9 @@ entrez <- AnnotationDbi::select(org.Hs.eg.db,
 
 x <- enrichPathway(gene=entrez$ENTREZID,pvalueCutoff=0.05, readable=T)
 emapplot(x)
-ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/emapplot.pdf",data),device = "pdf",scale = 2)
+ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.png",data,data),device = "png",scale = 2)
 cnetplot(x, categorySize="pvalue")
-ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/cnetplot.pdf",data),device = "pdf",scale = 2)
+ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.png",data,data),device = "png",scale = 2)
 }
 
 reactomeplots(data)
