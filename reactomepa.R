@@ -1,8 +1,8 @@
-library(tidyverse)
-library(ReactomePA)
-library(AnnotationDbi)
-library(org.Hs.eg.db)
-library(DESeq2)
+suppressMessages(library(tidyverse))
+suppressMessages(library(ReactomePA))
+suppressMessages(library(AnnotationDbi))
+suppressMessages(library(org.Hs.eg.db))
+suppressMessages(library(DESeq2))
 
 arg <- commandArgs()
 data <- arg[6]
