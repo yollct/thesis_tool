@@ -27,9 +27,9 @@ def gene_oxi_cluster(data):
     ##write file
     with open("/nfs/home/students/chit/Thesis/results/{}/gene_oxi_repair_clusters.txt".format(data), "w") as f:
         f.write("Gene oxidative stress clusters with green edges: "+"\n")
-        f.write(hlo_oxi)
+        f.write("_".join(hlo_oxi))
         f.write("Gene repair mechanism clusters with green edges: "+"\n")
-        f.write(hlo_repair)
+        f.write("_".join(hlo_repair))
 
 if __name__ == "__main__":
     gene_oxi_cluster(data)    
