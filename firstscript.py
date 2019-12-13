@@ -20,7 +20,7 @@ def get_edges(data, High_log_odd=True):
     
 
 def connectivity_cluster(data, edges, high=True):
-    interact = new_edge[['Cluster 1', 'Cluster 2']]
+    interact = edges[['Cluster 1', 'Cluster 2']]
     interact.columns=['c1','c2']
 
     final = pd.DataFrame([interact.c1.str.split().str[1],
