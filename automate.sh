@@ -3,13 +3,14 @@
 ##-d enter the name of folder
 ##high log odd automation
 #job - term
-while getopts d:j:p: option
+while getopts d:j:p:s: option
 do
 case "${option}"
 in 
 d) data=${OPTARG};;
 j) job=${OPTARG};;
-p) pvalue=${OPTARG};;
+p) pvalue=${OPTARG};; ##pvalue for filtering the edges
+s) scale=${OPTARG};; ##scale for plotting reactome plots
 esac
 done
 
@@ -45,7 +46,7 @@ echo DAVID table is plotted.
 python reactome.py $data
 echo Reactome result is plotted.
 
-Rscript reactomepa.R $data
+Rscript reactomepa.R $data $scale
 echo ReactomePA results is plotted.
 
 python gene_oxi_repair_clusters.py $data
