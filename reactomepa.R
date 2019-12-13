@@ -18,7 +18,7 @@ x <- enrichPathway(gene=entrez$ENTREZID,pvalueCutoff=0.05, readable=T)
 emapplot(x)
 ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.pdf",data,data),device = "pdf",scale = 2)
 cnetplot(x, categorySize="pvalue")
-ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = 1.5)
+ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = 2)
 }
 
 reactomeplots(data)
