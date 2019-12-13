@@ -40,8 +40,8 @@ def connectivity_cluster(data, edges, high=True):
             f.close()
     else:
         with open("/nfs/home/students/chit/Thesis/results/{}/all_connect.txt".format(data), "w") as f:
-        for x in highlogodd:
-            f.write(x+'_')
+            for x in highlogodd:
+                f.write(x+'_')
         f.close()
 
 def get_all_clusters(data):
