@@ -19,7 +19,7 @@ def david_termenrich(david, term, data):
     plt.scatter(david['Pvalue'], david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
     plt.colorbar(label='Cluster enrichment score')
     plt.gca().invert_yaxis()
-    plt.set_xscale('log')
+    plt.set_yscale('log')
     plt.xlabel('P Value')
     plt.ylabel('Term')
     plt.grid()
