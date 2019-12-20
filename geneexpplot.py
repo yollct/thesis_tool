@@ -7,15 +7,15 @@ gene = sys.argv[1]
 
 ##raw norm data
 def geneplot(gene):
-    n16h = pd.read_csv('/home/chit/Desktop/Thesis/data/4timepoints/16hr_SOLiD_deseq2.csv')
-    n7d = pd.read_csv('/home/chit/Desktop/Thesis/data/4timepoints/7days_SOLiD_deseq2.csv')
+    n16h = pd.read_csv('/home/chit/Desktop/Thesis/data/4timepoints/16hr_Next-Seq_deseq2.csv')
+    n7d = pd.read_csv('/home/chit/Desktop/Thesis/data/4timepoints/7days_Next-Seq_deseq2.csv')
 
     com = pd.DataFrame(np.vstack([n16h[n16h['SYMBOL']==gene].iloc[:,2:].values,n7d[n7d['SYMBOL']==gene].iloc[:,2:].values])).T
     com.columns = ['16h','7d']
     com['dosage'] = ['0g','2g','5g','10g']
     com=com.set_index('dosage')
     com.plot()
-    plt.title("Expression of TP53")
+    plt.title("Expression of "+gene)
     plt.xlabel("Dosage")
     plt.show()
 
