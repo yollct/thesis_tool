@@ -3,6 +3,7 @@ suppressMessages(library(ReactomePA))
 suppressMessages(library(AnnotationDbi))
 suppressMessages(library(org.Hs.eg.db))
 suppressMessages(library(DESeq2))
+library(xtable)
 
 arg <- commandArgs()
 data <- arg[6]
