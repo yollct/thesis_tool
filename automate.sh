@@ -3,7 +3,7 @@
 ##-d enter the name of folder
 ##high log odd automation
 #job - term
-while getopts d:j:p:s: option
+while getopts d:j:p:c:s: option
 do
 case "${option}"
 in 
