@@ -24,6 +24,9 @@ ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.pdf",data,
 
 dotplot(x, showCategory=30, color="pvalue", size="Count")
 ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_dotplot.pdf",data,data),device = "pdf", scale= scale)
+
+xtable(data.frame(x), type="latex", file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.pdf",data,data))
+
 }
 
 reactomeplots(data, scale)
