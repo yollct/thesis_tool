@@ -6,6 +6,7 @@ import matplotlib.cm as cm
 import matplotlib.patches as mpatches
 import sys
 from os import listdir
+import math
 
 data = sys.argv[1]
 
@@ -16,10 +17,10 @@ def david_termenrich(david, term, data):
     size = np.array(david['%']*10)
     plt.figure()
     
-    plt.scatter(david['Pvalue'], david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
+    plt.scatter(-math.log10(david['Pvalue']), david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
     plt.colorbar(label='Cluster enrichment score')
     plt.gca().invert_yaxis()
-    plt.xlabel('P Value')
+    plt.xlabel('-log10(p-value)')
     plt.ylabel('Term')
     plt.grid()
     
