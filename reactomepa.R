@@ -23,7 +23,7 @@ ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.pdf",data,
 cnetplot(x, categorySize="pvalue")
 ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = scale)
 
-xtable(data.frame(x), type="latex", file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.txt",data,data))
+print.xtable(data.frame(x), type="latex", file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.txt",data,data))
 
 }
 
