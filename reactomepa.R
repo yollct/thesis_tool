@@ -30,7 +30,7 @@ print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/resul
 
 }
 
-reactomeplots(data, pcutoff)
+reactomeplots(data, pcutoff, scale=2)
 
 
 
