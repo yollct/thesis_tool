@@ -13,7 +13,7 @@ data = sys.argv[1]
 def david_termenrich(david, term, data):
     three = (david['cluster']<term)
     david = david[three]
-    david['logPvalue'] = david.apply(lambda x: -math.log10(x) for x in david['Pvalue'])
+    david['logPvalue']=[-math.log10(x) for x in david['Pvalue']]
     w = len(david)
     size = np.array(david['%']*10)
     plt.figure()
