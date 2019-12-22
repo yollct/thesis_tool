@@ -24,8 +24,8 @@ cnetplot(x, categorySize="pvalue")
 ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = scale)
 
 p <- data.frame(x) %>%
-  dplyr::select(-geneID,-qvalue, -Count, -pvalue, -BgRatio) %>%
-  arrange(desc(GeneRatio))
+    arrange(desc(Count)) %>%
+  dplyr::select(-geneID,-qvalue, -Count, -pvalue, -BgRatio) 
 print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.txt",data,data), include.rownames = FALSE)
 
 }
