@@ -48,3 +48,6 @@ echo Reactome result is plotted.
 
 python gene_oxi_repair_clusters.py $data
 echo The clusters for oxi and repiar genes is extracted.
+
+Rscript reactomepa.R $data $scale
+echo The reactome PA results are plotted.
