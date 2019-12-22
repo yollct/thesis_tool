@@ -11,7 +11,7 @@ d) data=${OPTARG};;
 j) job=${OPTARG};;
 p) pvalue=${OPTARG};; ##pvalue for filtering the edges
 c) pcutoff=${OPTARG};; ##pvalue cutoff for plotting reactome plots
-s) scale = ${OPTARG};; ##scale for plotting emap and cnet
+s) scale=${OPTARG};; ##scale for plotting emap and cnet
 esac
 done
 
