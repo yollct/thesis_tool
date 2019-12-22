@@ -14,6 +14,7 @@ def david_termenrich(david, term, data):
     three = (david['cluster']<term)
     david = david[three]
     david['logPvalue']=[-math.log10(x) for x in david['Pvalue']]
+    david = david.sort_values('logPvalue', ascending=False)
     w = len(david)
     size = np.array(david['%']*10)
     plt.figure()
