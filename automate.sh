@@ -10,7 +10,7 @@ in
 d) data=${OPTARG};;
 j) job=${OPTARG};;
 p) pvalue=${OPTARG};; ##pvalue for filtering the edges
-s) scale=${OPTARG};; ##scale for plotting reactome plots
+s) pcutoff=${OPTARG};; ##scale for plotting reactome plots
 esac
 done
 
@@ -49,5 +49,5 @@ echo Reactome result is plotted.
 python gene_oxi_repair_clusters.py $data
 echo The clusters for oxi and repiar genes is extracted.
 
-Rscript reactomepa.R $data $scale
+Rscript reactomepa.R $data $pcutoff
 echo The reactome PA results are plotted.

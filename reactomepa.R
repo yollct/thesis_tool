@@ -7,21 +7,21 @@ library(xtable)
 
 arg <- commandArgs()
 data <- arg[6]
-scale <- as.numeric(arg[7])
+pcutoff <- as.numeric(arg[7])
 
 
-reactomeplots <- function(data,scale){
+reactomeplots <- function(data,pcutoff){
 genes <- readLines(sprintf("/nfs/home/students/chit/Thesis/results/%s/highlogenes_ens.txt",data))
 entrez <- AnnotationDbi::select(org.Hs.eg.db,
                                 keys = genes,
                                 keytype = "ENSEMBL",
                                 columns = "ENTREZID")
 
-x <- enrichPathway(gene=entrez$ENTREZID,pvalueCutoff=0.05, readable=T)
+x <- enrichPathway(gene=entrez$ENTREZID,pvalueCutoff=pcutoff, readable=T)
 emapplot(x)
-ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.pdf",data,data),device = "pdf", scale= scale)
+ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_emapplot.pdf",data,data),device = "pdf", scale= 2)
 cnetplot(x, categorySize="pvalue")
-ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = scale)
+ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,data),device = "pdf",scale = 2)
 
 p <- data.frame(x) %>%
     arrange(desc(as.numeric(Count))) %>%
@@ -30,7 +30,7 @@ print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/resul
 
 }
 
-reactomeplots(data, scale)
+reactomeplots(data, pcutoff)
 
 
 
