@@ -25,6 +25,7 @@ ggsave(sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_cnetplot.pdf",data,
 
 p <- data.frame(x) %>%
   dplyr::select(-geneID,-ID,-qvalue, -Count, -pvalue, -BgRatio) %>%
+  mutate(PathwayID = row.names(.))
   arrange(desc(GeneRatio))
 print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.txt",data,data))
 
