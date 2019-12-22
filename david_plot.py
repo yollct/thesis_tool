@@ -13,11 +13,12 @@ data = sys.argv[1]
 def david_termenrich(david, term, data):
     three = (david['cluster']<term)
     david = david[three]
+    david['logPvalue'] = david.apply(lambda x: -math.log10(x) for x in david['Pvalue'])
     w = len(david)
     size = np.array(david['%']*10)
     plt.figure()
     
-    plt.scatter(-math.log10(david['Pvalue']), david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
+    plt.scatter(david['logPvalue'], david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
     plt.colorbar(label='Cluster enrichment score')
     plt.gca().invert_yaxis()
     plt.xlabel('-log10(p-value)')
