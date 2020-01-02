@@ -28,10 +28,10 @@ p <- data.frame(x) %>%
     arrange(desc(as.numeric(Count))) %>%
   dplyr::select(-geneID,-qvalue, -Count, -pvalue, -BgRatio) 
 print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.txt",data,data), include.rownames = FALSE)
-
+write.csv(data.frame(x), sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.csv",data,data))
 }
 
-write.csv(data.frame(x), sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.csv",data,data))
+
 reactomeplots(data, pcutoff, scale=2)
 
 
