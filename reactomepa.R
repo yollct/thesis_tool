@@ -31,6 +31,7 @@ print(xtable(p, type="latex"),file=sprintf("/nfs/home/students/chit/Thesis/resul
 
 }
 
+write.csv(data.frame(x), sprintf("/nfs/home/students/chit/Thesis/results/%s/%s_reactomepa.csv",data,data))
 reactomeplots(data, pcutoff, scale=2)
 
 
