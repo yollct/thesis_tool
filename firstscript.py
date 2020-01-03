@@ -31,7 +31,7 @@ def connectivity_cluster(data, edges, high=True):
         highlo.append(v[0])
         highlo.append(v[1])
 
-    highlogodd = ln16_cluster = open("/nfs/home/students/chit/Thesis/results/old_n16_ns/high_log_odd.txt").read().split("_")[:-1]n16_cluster = open("/nfs/home/students/chit/Thesis/results/old_n16_ns/high_log_odd.txt").read().split("_")[:-1]ist(set(highlo))
+    highlogodd = list(set(highlo))
 
     if high==True:
         with open("/nfs/home/students/chit/Thesis/results/{}/high_log_odd.txt".format(data), "w") as f:
