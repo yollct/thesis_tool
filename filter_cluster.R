@@ -20,9 +20,7 @@ filterclust_ensm <- function(clust){
 }
 
 whatever <- filterclust_ensm(sprintf("Cluster %s", input))
-writeLines(whatever$ENSEMBL, sprintf("/nfs/home/students/chit/Thesis/results/%s/clust%s.txt",result,input), row.names = F,
-            col.names = F,
-            quote = F)
+writeLines(whatever$ENSEMBL, sprintf("/nfs/home/students/chit/Thesis/results/%s/clust%s.txt",result,input))
 
 
 
