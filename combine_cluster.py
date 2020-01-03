@@ -19,7 +19,7 @@ for x in clusters:
 
 if len(hlo_genes)>3000:
         random_genes = random.sample(hlo_genes, 2999)
-        with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes_david.txt'.format(data,j),"w") as f:
+        with open('/nfs/home/students/chit/Thesis/results/{}/highlogenes_david.txt'.format(data),"w") as f:
             for i in random_genes:
                 f.write(i+"\n")
         f.close()
