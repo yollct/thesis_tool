@@ -17,7 +17,7 @@ def geneplot(gene):
     com.plot()
     plt.title("Expression of "+gene)
     plt.xlabel("Dosage")
-    plt.savefig('/home/chit/Desktop/Thesis/maintext/figures/{}.png'.format(gene), bbox_inches='tight', height=1000)
+    #plt.savefig('/home/chit/Desktop/Thesis/maintext/figures/{}.png'.format(gene), bbox_inches='tight', height=1000)
     plt.show()
 
 if __name__ == "__main__":

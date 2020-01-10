@@ -28,19 +28,18 @@ echo clust_highlog.txt is saved in $data folder.
 Rscript ensemblid.R $data
 echo Genes are converted to ensembl id.
 
-if [ -e /nfs/home/students/chit/Thesis/results/$data/highlogenes_ens.txt.termClusteringReport.txt ]
-then
-    echo Finished running DAVID!
-else            
-    cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
-    case $job in
-       "termenrich") python DAVIDtermenrich.py $data ;;              
-       "chart") python DAVIDenrich.py $data ;;
-    esac
-    cd /nfs/home/students/chit/Thesis/thesis_tool
-    echo Finished running DAVID!
-fi
-
+#if [ -e /nfs/home/students/chit/Thesis/results/$data/highlogenes_ens.txt.termClusteringReport.txt ]
+#then
+#    echo Finished running DAVID!
+#else            
+cd /nfs/home/students/chit/myDAVIDAPI/PythonClient
+case $job in
+  "termenrich") python DAVIDtermenrich.py $data ;;              
+   "chart") python DAVIDenrich.py $data ;;
+esac
+cd /nfs/home/students/chit/Thesis/thesis_tool
+echo Finished running DAVID!
+#fi
 python david_plot.py $data
 echo DAVID table is plotted.
 
