@@ -16,7 +16,7 @@ def david_termenrich(david, term, data):
     david['logPvalue']=[-math.log10(x) for x in david['Pvalue']]
     david = david.sort_values('logPvalue', ascending=False)
     w = len(david)
-    size = np.array(david['%']*10)
+    size = np.array(david['%']*100)
     plt.figure()
     
     plt.scatter(david['logPvalue'], david['Term'], label=None, c=np.array(david['enrichmentscore']), cmap='plasma', s=size)
