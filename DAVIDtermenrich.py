@@ -1,7 +1,11 @@
 #!python
 # by courtesy of HuangYi @ 20110424
+import sys
 
-def DAVIDtermenrich(listF, idType, bgF="/home/chit/Desktop/Thesis/data/bg_hs.txt", resF='', bgName = 'Background1',listName='List1', category = ''):
+data = sys.argv[1]
+
+
+def DAVIDtermenrich(listF, idType, bgF="/nfs/home/students/chit/Thesis/data/bg_hs.txt", resF='', bgName = 'Background1',listName='List1', category = ''):
     from suds.client import Client
     import os
    
@@ -10,8 +14,8 @@ def DAVIDtermenrich(listF, idType, bgF="/home/chit/Desktop/Thesis/data/bg_hs.txt
         print ('List loaded.')     
     else:
         print ('No list loaded.')
-        raise
 
+        
     flagBg = False
     if len(bgF) > 0 and os.path.exists(bgF):
         inputBgIds = ','.join(open(bgF).read().split('\n'))
@@ -68,5 +72,5 @@ def DAVIDtermenrich(listF, idType, bgF="/home/chit/Desktop/Thesis/data/bg_hs.txt
                 fOut.write('\t'.join(rowList)+'\n')
     print ('write file:', resF, 'finished!')
 
-if __name__ == __main__:
-    DAVIDtermenrich(listF = '/home/chit/Desktop/Thesis/results/01.06/clust7_72.txt', idType = 'ENSEMBL_GENE_ID', listName = 'clust7_72', category = 'abcd,BBID,BIOCARTA,COG_ONTOLOGY,INTERPRO,KEGG_PATHWAY,OMIM_DISEASE,PIR_SUPERFAMILY,SMART,SP_PIR_KEYWORDS,UP_SEQ_FEATURE,GOTERM_MF_FAT,GOTERM_CC_FAT,GOTERM_BP_FAT')
+if __name__ == '__main__':
+    DAVIDtermenrich(listF = '/nfs/home/students/chit/Thesis/results/{}/highlogenes.txt'.format(data), idType = 'ENSEMBL_GENE_ID', listName = 'highlogodd'.format(c), category = 'abcd,BBID,BIOCARTA,COG_ONTOLOGY,INTERPRO,KEGG_PATHWAY,OMIM_DISEASE,PIR_SUPERFAMILY,SMART,SP_PIR_KEYWORDS,UP_SEQ_FEATURE,GOTERM_MF_FAT,GOTERM_CC_FAT,GOTERM_BP_FAT')
